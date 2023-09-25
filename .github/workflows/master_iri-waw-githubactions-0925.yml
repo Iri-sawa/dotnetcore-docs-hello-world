@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'iri-WaW-GitHubActions-0925'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_124643223AF347CF93A839DC7977451E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7F99D10BC38D4F5C850145299EAE1946 }}
           package: .
