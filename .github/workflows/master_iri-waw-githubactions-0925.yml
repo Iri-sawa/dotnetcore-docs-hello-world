@@ -43,8 +43,8 @@ jobs:
 
     steps:
     #--- add Start ---
-      - name: dig +short myip.opendns.com @resolver1.opendns.com
-        run: dig +short myip.opendns.com @resolver1.opendns.com
+      - name: dig +short myip.opendns.com resolver1.opendns.com
+        run: dig +short myip.opendns.com resolver1.opendns.com
 
       - name: Add NSG Rule
         uses: venura9/manage-nsg@master
