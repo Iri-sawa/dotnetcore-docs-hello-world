@@ -42,6 +42,22 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+    #--- add Start ---
+      - name: dig +short myip.opendns.com @resolver1.opendns.com
+        run: dig +short myip.opendns.com @resolver1.opendns.com
+
+      - name: Add NSG Rule
+        uses: venura9/manage-nsg@master
+        id: rule
+        with:
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          rule-nsg-resource-group-name: rg-irisawa
+          rule-nsg-name: nsg-forPEP
+
+      - name: Print Created NSG Rule Name
+        run: echo "Rule Name ${{ steps.rule.outputs.rule_name }}"
+    #--- add End ---
+      
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
